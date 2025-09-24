@@ -43,7 +43,4 @@ A **full-stack Todo application** with role-based authentication (User/Admin) bu
 
 ---
 
-## Folder Structure
-
-### Backend
 
