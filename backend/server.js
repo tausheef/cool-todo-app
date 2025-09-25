@@ -12,7 +12,7 @@ connectDB();
 
 // CORS setup
 app.use(cors({
-  origin: "http://localhost:8080", // frontend URL
+  origin: "https://cool-todo-app-frntnd.onrender.com", // frontend URL
   methods: ["GET", "POST", "PUT", "PATCH", "DELETE", "OPTIONS"],
   allowedHeaders: ["Content-Type", "Authorization"],
   credentials: true, // allow cookies if needed in future
