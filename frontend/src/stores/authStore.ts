@@ -3,7 +3,7 @@ import axios from "axios";
 
 // Create an Axios instance
 const API = axios.create({
-  baseURL: "http://localhost:5000/api", // your backend URL
+  baseURL: "https://cool-todo-app.onrender.com/api", // your backend URL
   headers: {
     "Content-Type": "application/json",
   },
