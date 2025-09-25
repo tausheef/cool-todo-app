@@ -62,14 +62,15 @@ export const deleteTodo = async (req, res) => {
     const todo = await Todo.findById(req.params.id);
     if (!todo) return res.status(404).json({ message: "Todo not found" });
 
-    // Only admin or owner can delete
+    // Authorization: Only admin or owner
     if (req.user.role !== "admin" && todo.userId.toString() !== req.user._id.toString()) {
       return res.status(403).json({ message: "Not authorized" });
     }
 
-    await todo.remove();
+    await todo.deleteOne();  // ✅ Modern Mongoose
     res.json({ message: "Todo deleted successfully" });
   } catch (err) {
     res.status(500).json({ message: err.message || "Failed to delete todo" });
   }
 };
+
