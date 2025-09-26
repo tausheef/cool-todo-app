@@ -12,7 +12,7 @@ connectDB();
 
 // CORS setup
 app.use(cors({
-  origin: "https://cool-todo-app.vercel.app/", // frontend URL
+  origin: "https://cool-todo-app.vercel.app", // frontend URL
   methods: ["GET", "POST", "PUT", "PATCH", "DELETE", "OPTIONS"],
   allowedHeaders: ["Content-Type", "Authorization"],
   credentials: true, // allow cookies if needed in future
