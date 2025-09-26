@@ -11,13 +11,25 @@ const app = express();
 connectDB();
 
 // CORS setup
-app.use(cors({
-  origin: "https://cool-todo-app.vercel.app", // frontend URL
-  methods: ["GET", "POST", "PUT", "PATCH", "DELETE", "OPTIONS"],
-  allowedHeaders: ["Content-Type", "Authorization"],
-  credentials: true, // allow cookies if needed in future
-}));
+// app.use(cors({
+//   origin: "https://cool-todo-app.vercel.app", // frontend URL
+//   methods: ["GET", "POST", "PUT", "PATCH", "DELETE", "OPTIONS"],
+//   allowedHeaders: ["Content-Type", "Authorization"],
+//   credentials: true, // allow cookies if needed in future
+// }));
+const allowedOrigins = ['https://cool-todo-app.vercel.app'];
 
+app.use(cors({
+  origin: function (origin, callback) {
+    if (!origin || allowedOrigins.includes(origin)) {
+      callback(null, true);
+    } else {
+      callback(new Error("Not allowed by CORS"));
+    }
+  },
+  methods: ["GET", "POST", "PUT", "PATCH", "DELETE", "OPTIONS"],
+  credentials: true,
+}));
 app.use(express.json());
 
 // Routes
